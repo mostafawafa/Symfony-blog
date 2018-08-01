@@ -1,0 +1,33 @@
+{% extends 'base.html.twig' %}
+
+
+{% block body %}
+<style>
+    .example-wrapper { margin: 1em auto; max-width: 800px; width: 95%; font: 18px/1.5 sans-serif; }
+    .example-wrapper code { background: #F5F5F5; padding: 2px 6px; }
+</style>
+
+<div class="example-wrapper">
+
+       
+           <a href='#'>  <h3 >  {{article.title}}  </h3> </a>
+            <p> {{article.body}} </p>
+            <h5> written by:<a href='/users/{{article.user.id}}' >  {{article.user.name}}  </a> </h5>
+
+    {% for comment in article.comments %}
+    <div class='comment'> 
+
+            <h3> {{comment.body}} </h3>
+            <h5>  
+            by:
+            {% if  comment.user %}
+                <a href='/users/{{comment.user.id}}' >  {{comment.user.name}}  </a> 
+            {% else %}
+                Anon
+            {% endif %}
+            </h5>
+
+    </div>
+    {% endfor %}
+</div>
+{% endblock %}
