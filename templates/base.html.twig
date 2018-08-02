@@ -8,25 +8,27 @@
         {% block stylesheets %}{% endblock %}
     </head>
     <body>
-     <nav class="navbar navbar-expand-sm bg-dark">
+     <nav class="navbar navbar-expand-sm bg-dark mb-5">
           <a class="navbar-brand" href="#">MMA</a>
 
             <!-- Links -->
             <ul class="navbar-nav">
                 <li class="nav-item">
-                <a class="nav-link" href="#">Link 1</a>
+                <a class="nav-link" href="/articles">Our Articles</a>
                 </li>
                 <li class="nav-item">
-                <a class="nav-link" href="#">Link 2</a>
+                <a class="nav-link" href="/users">Our Writers</a>
                 </li>
-                <li class="nav-item">
-                <a class="nav-link" href="#">Link 3</a>
-                </li>
+                
             </ul>
 
 </nav>
+    <div class='container'>
+ 
 
         {% block body %}{% endblock %}
+    </div>
+  
         <script src='{{asset('build/app.js')}}'> </script>
         {% block javascripts %}{% endblock %}
     </body>

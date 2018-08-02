@@ -4,7 +4,8 @@ namespace App\Controller;
 
 use Symfony\Component\Routing\Annotation\Route;
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
-use App\Entity\Article;
+use App\Entity\{Article,Category};
+
 
 class ArticleController extends Controller
 {
@@ -14,8 +15,10 @@ class ArticleController extends Controller
     public function index()
     {
         $articles = $this->getDoctrine()->getRepository(Article::class)->findAll();
+        $categories = $this->getDoctrine()->getRepository(Category::class)->findAll();
         return $this->render('article/index.html.twig', [
             'articles' => $articles,
+            'categories' => $categories
         ]);
     }
 
