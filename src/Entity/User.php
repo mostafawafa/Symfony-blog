@@ -64,6 +64,9 @@ class User implements UserInterface,\Serializable
      */
     private $username;
 
+  
+    private $plainPassword;
+
     public function __construct()
     {
         $this->articles = new ArrayCollection();
@@ -260,6 +263,18 @@ class User implements UserInterface,\Serializable
     public function setUsername(string $username): self
     {
         $this->username = $username;
+
+        return $this;
+    }
+
+    public function getPlainPassword(): string
+    {
+        return $this->plainPassword;
+    }
+
+    public function setPlainPassword(string $plainPassword): self
+    {
+        $this->plainPassword = $plainPassword;
 
         return $this;
     }

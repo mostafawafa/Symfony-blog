@@ -1,0 +1,40 @@
+{% extends 'base.html.twig' %}
+
+
+{% block body %}
+<style>
+    .example-wrapper { margin: 1em auto; max-width: 800px; width: 95%; font: 18px/1.5 sans-serif; }
+    .example-wrapper code { background: #F5F5F5; padding: 2px 6px; }
+</style>
+
+<div class="example-wrapper text-center">
+
+    <form action='{{path('register')}}' method='POST'>
+      <div class="form-group">
+             <label for="name">name:</label>
+             <input name='name' type="text" class="form-control" id="name">
+        </div>
+        <div class="form-group">
+             <label for="email">Email:</label>
+             <input name='email' type="email" class="form-control" id="email">
+        </div>
+         <div class="form-group">
+             <label for="username">username:</label>
+             <input name='username' type="text" class="form-control" id="username">
+        </div>
+          <div class="form-group">
+             <label for="phone">phone:</label>
+             <input name='phone' type="text" class="form-control" id="phone">
+        </div>
+       <div class="form-group">
+             <label for="password">password:</label>
+             <input name='password' type="password" class="form-control" id="password">
+        </div>
+
+       
+
+          <button class='btn mt-3'> submit </submit>
+        </div>
+  </form>
+</div>
+{% endblock %}

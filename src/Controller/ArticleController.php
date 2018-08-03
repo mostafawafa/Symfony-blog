@@ -90,7 +90,11 @@ class ArticleController extends Controller
      * @Route("articles/{id}/edit")
 */
 public function edit($id){
- 
+    $this->denyAccessUnlessGranted('IS_AUTHENTICATED_FULLY');
+    if($this->getUser()->getIsAdmin()  !== true){
+         return  $this->redirectToRoute('allArticles');
+    }
+    
     $article = $this->getDoctrine()->getRepository(Article::class)->find($id);
     $categories = $this->getDoctrine()->getRepository(Category::class)->findAll();
     
@@ -138,9 +142,7 @@ public function update($id){
         $manager->remove($article);
         $manager->flush();
 
-        return  $this->redirectToRoute('allArticles', [
-            'id' => $article->getId()
-        ]);
+        return  $this->redirectToRoute('allArticles');
     }
 
 
