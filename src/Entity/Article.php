@@ -111,6 +111,19 @@ class Article
         return $this;
     }
 
+
+    public function getFeaturedPhoto()
+    {
+        return $this->featured_photo;
+    }
+
+    public function setFeaturedPhoto($featured_photo): self
+    {
+        $this->featured_photo = $featured_photo;
+
+        return $this;
+    }
+
     public function getUser()
     {
         return $this->user;

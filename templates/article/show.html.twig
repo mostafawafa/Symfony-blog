@@ -30,5 +30,14 @@
 
     </div>
     {% endfor %}
+    <form action='{{path('addComment')}}' method='post'>
+        <div class="form-group mt-5" >
+        <label for="comment"> Add Comment:</label>
+        
+        <textarea name='comment' class="form-control" rows="5" id="comment"></textarea>
+        <input type='hidden' value='{{article.id}}' name='article' />
+        <button class='btn mt-3'> submit </submit>
+        </div>
+  </form>
 </div>
 {% endblock %}
