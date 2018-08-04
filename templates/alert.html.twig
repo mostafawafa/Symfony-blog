@@ -1,0 +1,8 @@
+  {% if  app.session.getFlashBag().has('errors') %}
+         {% for message in app.session.getFlashBag().get('errors', [])  %}
+
+            <div class="alert alert-danger">{{message}}</div>
+            
+         {% endfor %}
+
+    {% endif %}

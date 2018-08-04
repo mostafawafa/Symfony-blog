@@ -5,6 +5,8 @@ namespace App\Entity;
 use Doctrine\Common\Collections\ArrayCollection;
 use Doctrine\Common\Collections\Collection;
 use Doctrine\ORM\Mapping as ORM;
+use Symfony\Component\Validator\Constraints as Assert;
+use Carbon\Carbon;
 
 /**
  * @ORM\Entity(repositoryClass="App\Repository\ArticleRepository")
@@ -20,6 +22,7 @@ class Article
 
      /**
      * @ORM\Column(type="string", length=255)
+     * @Assert\NotBlank(message="insert title")
      */
     private $title;
 
@@ -27,6 +30,8 @@ class Article
 
     /**
      * @ORM\Column(type="text")
+     * @Assert\NotBlank(message="Insert body")
+
      */
     private $body;
 
@@ -101,7 +106,8 @@ class Article
 
     public function getCreatedAt()
     {
-        return $this->created_at;
+        return Carbon::createFromTimestamp($this->created_at->getTimestamp()); 
+
     }
 
     public function setCreatedAt(\DateTimeInterface $created_at): self

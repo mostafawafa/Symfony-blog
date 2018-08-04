@@ -8,28 +8,48 @@
 </style>
 
 <div class="example-wrapper text-center">
-
-       
+<div class="card mb-4">
+        <div class='card-header' >
             <h3 >  {{article.title}}  </h3> 
+            <h4>{{article.createdAt.diffForHumans()}} </h4>
+
+
+        </div>
+        <div class='card-body '>
             <p> {{article.body}} </p>
             <h5> written by:<a href='/users/{{article.user.id}}' >  {{article.user.name}}  </a> </h5>
 
+        </div>
+          
+        </div>
+       
+   
 
-    {% for comment in article.comments %}
-    <div class='comment'> 
+<h3> Comments </h3>
+                 {% for comment in article.comments %}
 
-            <h3> {{comment.body}} </h3>
-            <h5>  
-            by:
-            {% if  comment.user %}
-                <a href='/users/{{comment.user.id}}' >  {{comment.user.name}}  </a> 
-            {% else %}
-                Anon
-            {% endif %}
-            </h5>
+<div class="card mt-4 ">
 
-    </div>
-    {% endfor %}
+        <div class='card-body '>
+                <div class='comment'> 
+
+                <h3> {{comment.body}} </h3>
+                <h5>  
+                by:
+                {% if  comment.user %}
+                    <a href='/users/{{comment.user.id}}' >  {{comment.user.name}}  </a> 
+                {% else %}
+                    Anon
+                {% endif %}
+                </h5>
+
+          </div>
+            
+        </div>
+       
+        </div>  
+              {% endfor %}
+
     <form action='{{path('addComment')}}' method='post'>
         <div class="form-group mt-5" >
         <label for="comment"> Add Comment:</label>

@@ -11,16 +11,10 @@ use Symfony\Component\HttpFoundation\Response;
 
 class UserController extends Controller
 {
-    /**
-     * @Route("/user", name="user")
-     */
-    public function index()
-    {
-      
-    }
+   
 
     /**
-     * @Route("/users/{id}", name="users.show")
+     * Route("/users/{id}", name="users.show")
      */
     public function show($id){
         $user = $this->getDoctrine()->getRepository(User::class)->find($id);

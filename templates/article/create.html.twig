@@ -9,7 +9,10 @@
 
 <div class="example-wrapper text-center">
 
-    <form action='{{path('addArticle')}}' method='POST'>
+    {% include 'alert.html.twig' %}
+
+   
+    <form action='{{path('stortArticle')}}' method='POST'>
         <div class="form-group">
              <label for="title">Title:</label>
              <input name='title' type="text" class="form-control" id="title">
